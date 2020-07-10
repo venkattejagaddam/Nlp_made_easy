@@ -1,0 +1,11 @@
+urllib.request
+bs4
+heapq
+nltk
+string
+spacy
+sumy
+gensim
+textblob
+streamlit
+pillow
