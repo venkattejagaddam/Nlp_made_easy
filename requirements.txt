@@ -1,7 +1,5 @@
 bs4
-heapq
 nltk
-string
 spacy
 sumy
 gensim
