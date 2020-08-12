@@ -44,7 +44,7 @@ def sumy_summarizer(docx):
 
 # spacy summarizzer
 def spacy_summarizer(raw_docx):
-    nlp = spacy.load('en')
+    nlp = spacy.load('en_core_web_sm')
     raw_text = raw_docx
     docx = nlp(raw_text)
     stopwords = list(STOP_WORDS)
@@ -119,7 +119,7 @@ def nltk_summarizer(raw_text):
 
 
 def text_analyzer(my_text):
-    nlp = spacy.load('en')
+    nlp = spacy.load('en_core_web_sm')
     docx = nlp(my_text)
 
     # tokens = [token.text for token in docx]
@@ -148,7 +148,7 @@ def get_text(raw_url):
 
 
 def readingTime(mytext):
-    nlp = spacy.load('en')
+    nlp = spacy.load('en_core_web_sm')
     total_words = len([token.text for token in nlp(mytext)])
     estimatedTime = total_words/200.0
     return estimatedTime
@@ -172,7 +172,7 @@ def main():
 
     # entity
     elif(side_select == "NER_by_Given_Text"):
-        nlp = spacy.load('en')
+        nlp = spacy.load('en_core_web_sm')
         st.subheader("Named Entity Recognition from given Text")
         raw_text = st.text_area("Enter Text Here", "Type Here")
         if st.button("Analyze"):
@@ -188,7 +188,7 @@ def main():
 
     # NER by url
     elif(side_select == "NER_by_url"):
-        nlp = spacy.load('en')
+        nlp = spacy.load('en_core_web_sm')
         st.subheader("Analysis on Text From URL")
         raw_url = st.text_input("Enter URL Here", "Type here")
         text_preview_length = st.slider("Length to Preview", 50, 100)
@@ -234,12 +234,12 @@ def main():
             st.success(summary_result)
             st.write("Time required to read summarized text:",
                      readingTime(summary_result), "min")
-        if st.checkbox('gensim'):
-            st.text("Using gensim summarizer")
-            summary_result = summarize(message)
-            st.success(summary_result)
-            st.write("Time required to read summarized text:",
-                     readingTime(summary_result), "min")
+        #if st.checkbox('gensim'):
+         #   st.text("Using gensim summarizer")
+          #  summary_result = summarize(message)
+           # st.success(summary_result)
+            #st.write("Time required to read summarized text:",
+             #        readingTime(summary_result), "min")
         if st.checkbox('spacy'):
             st.text("Using spacy summarizer...")
             summary_result = spacy_summarizer(message)
