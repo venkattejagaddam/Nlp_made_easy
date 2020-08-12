@@ -119,7 +119,7 @@ def nltk_summarizer(raw_text):
 
 
 def text_analyzer(my_text):
-    nlp = spacy.load('en_core_web_sm')
+    nlp = spacy.load('en_core_web_lg')
     docx = nlp(my_text)
 
     # tokens = [token.text for token in docx]
@@ -148,7 +148,7 @@ def get_text(raw_url):
 
 
 def readingTime(mytext):
-    nlp = spacy.load('en_core_web_sm')
+    nlp = spacy.load('en_core_web_lg')
     total_words = len([token.text for token in nlp(mytext)])
     estimatedTime = total_words/200.0
     return estimatedTime
@@ -172,7 +172,7 @@ def main():
 
     # entity
     elif(side_select == "NER_by_Given_Text"):
-        nlp = spacy.load('en_core_web_sm')
+        nlp = spacy.load('en_core_web_lg')
         st.subheader("Named Entity Recognition from given Text")
         raw_text = st.text_area("Enter Text Here", "Type Here")
         if st.button("Analyze"):
@@ -188,7 +188,7 @@ def main():
 
     # NER by url
     elif(side_select == "NER_by_url"):
-        nlp = spacy.load('en_core_web_sm')
+        nlp = spacy.load('en_core_web_lg')
         st.subheader("Analysis on Text From URL")
         raw_url = st.text_input("Enter URL Here", "Type here")
         text_preview_length = st.slider("Length to Preview", 50, 100)
