@@ -1,9 +1,9 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import heapq
+import nltk
 from nltk.tokenize import word_tokenize, sent_tokenize
 from nltk.corpus import stopwords
-import nltk
 from heapq import nlargest
 from string import punctuation
 from spacy.lang.en.stop_words import STOP_WORDS
